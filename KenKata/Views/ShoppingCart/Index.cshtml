@@ -1,0 +1,73 @@
+﻿@model ShoppingCartViewModel
+
+<partial name="_ShoppingCartBannerPartial" />
+
+<div id="shoppingcart">
+    <div class="container d-flex">
+        <table id="shoppingcart-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var line in Model.ShoppingCart.ShoppinCartItems)
+                {
+                    <tr>
+                        <td>
+                            <a class="fas fa-times" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@line.Product.ProductId"></a>
+                        </td>                        
+                        <td>@line.Product.ProductName</td>    
+                        <td>$@line.Product.Price.ToString("")</td>
+                        <td>
+                            <div class="number-input">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="fas fa-minus"></button>
+                                <input class="quantity" min="1" name="quantity" value="@line.Quantity" type="number">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="fas fa-plus"></button>
+                            </div>
+                        </td>
+                        <td class="subtotal">
+                            $@((line.Quantity * line.Product.Price).ToString(""))
+                        </td>
+                    </tr>
+                }
+            </tbody>            
+        </table>        
+
+        <div id="shoppingcart-total">
+            <div class="cart-total-banner">
+                <h3>CART TOTALS</h3>
+            </div>
+            <div class="cart-total-info">
+                <div class="cart-total-title">
+                    <p>Subtotal</p>
+                    <div>
+                        <p class="subtotal">$@Model.ShoppingCartTotal.ToString()</p>
+                    </div>
+                </div>
+                <div class="cart-total-title">
+                    <p>Shipping</p>
+                    <div class="cart-total-shipping">
+                        <p class="mr-2">Free shipping</p>
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="cart-total-summary">
+                    <p>TOTAL.</p>
+                    <p id="p-summary">$@Model.ShoppingCartTotal.ToString()</p>
+                </div>
+                <div class="btn-group checkout">
+                    <a class="checkoutbtn" asp-controller="Order" asp-action="Checkout">PROCEED TO CHECKOUT</a>
+                </div>
+            </div>            
+        </div>        
+    </div>
+    <partial name="_ShoppingCartCoupon" />
+</div>
+<div class="mt-5"></div>
+<partial name="_ShopYouMayAlsoLike" />

@@ -1,0 +1,147 @@
+﻿@model Order
+
+<div id="shoppingcartbanner">
+    <div class="shoppingcartbanner-title">
+        <h3 class="h3-white">ShoppingCart</h3>
+        <i class="fas fa-chevron-right"></i>
+        <h3>Checkout</h3>
+        <i class="fas fa-chevron-right"></i>
+        <h3 class="h3-white">Order Complete</h3>
+    </div>
+</div>
+
+<div id="checkout-form">
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center">
+            <form asp-action="CheckoutComplete" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="d-flex">
+                    <div class="col-md-6">
+                        <h3 class="title">Billing Details</h3>
+                        <div class="column-1">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label asp-for="FirstName" class="control-label">First name <span>*</span></label>
+                                        <input asp-for="FirstName" class="form-control" />
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label asp-for="LastName" class="control-label">Last name <span>*</span></label>
+                                        <input asp-for="LastName" class="form-control" />
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Company" class="control-label">Company name (optional)</label>
+                                <input asp-for="Company" class="form-control" />
+                                <span asp-validation-for="Company" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Country" class="control-label">Country / Region <span>*</span></label>
+                                <select asp-for="Country" class="form-control">
+                                    <option selected>United States (US)</option>
+                                    <option>...</option>
+                                </select>
+                                <span asp-validation-for="Country" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="StreetAddress" class="control-label">Street address <span>*</span></label>
+                                <input asp-for="StreetAddress" class="form-control" placeholder="House number and street name" />
+                                <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="StreetAddress" class="form-control" placeholder="Apartment, suite, unit, etc. (optional)" />
+                                <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="StreetAddress" class="control-label">Town / City <span>*</span></label>
+                                <input asp-for="StreetAddress" class="form-control" placeholder="House number and street name" />
+                                <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="State" class="control-label">State <span>*</span></label>
+                                <select asp-for="State" class="form-control">
+                                    <option selected>Alabama</option>
+                                    <option>...</option>
+                                </select>
+                                <span asp-validation-for="State" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ZipCode" class="control-label">Zip code <span>*</span></label>
+                                <input asp-for="ZipCode" class="form-control" />
+                                <span asp-validation-for="ZipCode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PhoneNumber" class="control-label">Phone <span>*</span></label>
+                                <input asp-for="PhoneNumber" class="form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label">Email address <span>*</span></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" type="checkbox" id="createanaccount">
+                                <label class="form-check-label" for="createanaccount">Create an account?</label>
+                            </div>
+                            <p class="border-bottom mt-3"></p>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="differentaddress">
+                                <label class="form-check-label" for="differentaddress"><b>SHIP TO A DIFFERENT ADDRESS?</b></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="formTextarea">Order notes (optional)</label>
+                                <textarea class="form-control" id="formTextarea" rows="5" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="column-2">
+                            <div class="text pl-3">
+                                <p>
+                                    Returning customer?
+                                    <a asp-area="" asp-controller="Home" asp-action="Account">Click here to login</a>
+                                </p>
+                                <p>
+                                    Have a coupon?
+                                    <a href="">Click here to enter your code</a>
+                                </p>
+                            </div>
+                            <div id="coupon-code">
+                                <div class="container mt-3">
+                                    <div class="coupon-box">
+                                        <div class="coupon-text">
+                                            <p>If you have a coupon code, please apply it below.</p>
+                                        </div>
+                                        <div class="coupon-input">
+                                            <input id="coupon-inp" type="text" class="form-control" placeholder="Coupon code">
+                                            <button id="coupon-btn1" type="button" class="btn">Apply Coupon</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="pl-3 mt-5" style="color:#0E153D; font-size: 16px;">
+                                Your personal data will be used to process your order, support your experience throughout this website,
+                                and for other purposes described in our <a href="#">privacy policy.</a>
+                            </p>
+                            <p class="border-bottom mt-3"></p>
+                            <div class="form-check mb-4 text-center">
+                                <input class="form-check-input" type="checkbox" id="termsandconditions">
+                                <label class="form-check-label" for="termsandconditions">I have read and agree to the website <span class="span1">terms and conditions *</span></label>
+                            </div>
+                            <div class="form-group pl-3">
+                                <input type="submit" id="placeorder" name="PlaceOrder" value="PLACE ORDER" class="btn" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

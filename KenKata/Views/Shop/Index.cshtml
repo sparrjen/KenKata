@@ -1,0 +1,34 @@
+﻿@model IEnumerable<KenKata.Entities.Product>
+
+@{
+    ViewData["Title"] = "Shop";
+}
+
+<partial name="_ShopShowcase" />
+
+<partial name="_ShopbannerPartial" />
+
+
+<div id="shop-display">
+    <div class="container d-flex">
+        <div>
+            <partial name="_ProductCategoriesSideMenuPartial" />
+            <partial name="_ShopFilterByPriceSideMenuPartial" />
+            <partial name="_ShopFilterByColorSideMenuPartial" />
+            <partial name="_ShopFilterBySizeSideMenuPartial" />
+            <partial name="_ShopFilterByBrandSideMenuPartail" />
+            <partial name="_ShopStatusSideMenuPartial" />
+            <partial name="_ShopTopRatedProductSideMenuPartial" />
+        </div>
+        <div id="shop-products">
+            <div>
+                <div id="product-box" class="row row-cols-1 row-cols-md-3">
+                    <partial name="_ProductPartial">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<partial name="_Subscription" />
+
+</div>

@@ -1,0 +1,138 @@
+﻿@* Navbar TopMenu *@
+<div class="navbar-topmenu">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" id="arrowdown" href="#" data-toggle="dropdown">
+                            ENG <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">...</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" id="arrowdown" href="#" data-toggle="dropdown">
+                            USD <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">...</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" href="#">Newsletter</a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" asp-controller="Pages" asp-action="ContactUs">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQs</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+@* Navbar MainMenu *@
+<div class="navbar-mainmenu">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="mr-auto">
+                <img src="/Images/MainMenu/logo8.svg" />
+            </div>
+            <div class="box">
+                <input type="search" id="search" placeholder="Search products..." />
+                <button id="btn-groupDrop" data-toggle="dropdown">
+                    Categories <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">...</a></li>
+                </ul>
+                <button id="btn-icon" class="icon"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="account">
+                <a class="user-icon" asp-area="" asp-controller="Home" asp-action="Account">
+                    <i class="far fa-user"></i>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <span id="myaccount">@User.Identity.Name</span>
+                    }
+                    else
+                    {
+                        <span id="myaccount">My account</span>
+                    }
+                </a>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="far fa-heart"></i></a>
+                <a href="#"><i class="fas fa-random"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                <span>$</span>
+                <span>0.00</span>
+            </div>
+        </nav>
+    </div>
+</div>
+
+@* Navbar MainMenu Subheading *@
+<div class="navbar-mainmenu-subheading border-top">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" id="browse" href="#" data-toggle="dropdown">
+                            <img src="/Images/MainMenu/hamburgermenu.svg" />  Browse Categories <i id="arrowdown" class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">...</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Shop" asp-action="Index">
+                            Shop <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Products" asp-action="Index">
+                            Products <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">
+                            Categories <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="dropdown">
+                            <button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Pages <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a class="dropdown-item" asp-controller="Pages" asp-action="AboutUs">About Us</a></li>
+                                <li><a class="dropdown-item" asp-controller="Pages" asp-action="Team">Team</a></li>
+                                <li><a class="dropdown-item" asp-controller="Pages" asp-action="ContactUs">Contact Us</a></li>
+                                <li><a class="dropdown-item" asp-controller="Pages" asp-action="Portfolio">Portfolio</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Blog" asp-action="Blog">
+                            Blog
+                        </a>
+                    </li>
+                </ul>
+                <div class="mr-auto"></div>
+                <button id="btnspecialoffer" type="button" class="btn btn">SPECIAL OFFER</button>
+            </div>
+        </div>
+    </nav>
+</div>

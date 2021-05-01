@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-KenKata-512322BC-5DD1-40AD-8C58-4E63CD97544B</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\FourTools\" />
+    <Folder Include="wwwroot\Images\MyAccountPage\" />
+    <Folder Include="wwwroot\Images\AboutUsPage\" />
+    <Folder Include="wwwroot\Images\BlogPage\" />
+    <Folder Include="wwwroot\Images\ContactUsPage\" />
+    <Folder Include="wwwroot\Images\Portfolio\Details\" />
+    <Folder Include="wwwroot\Images\ShopPage\RelatedProducts\" />
+    <Folder Include="wwwroot\Images\TopSellers\" />
+    <Folder Include="wwwroot\Images\Showcase\" />
+  </ItemGroup>
+
+</Project>

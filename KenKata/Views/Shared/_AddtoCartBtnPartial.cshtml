@@ -1,0 +1,9 @@
+﻿@model Product
+
+<div id="addtocartbtn">
+    <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@Model.ProductId">
+        <img src="/Images/Products/Cart icon white.svg" alt=""> Add To Cart
+    </a>
+</div>
+
+

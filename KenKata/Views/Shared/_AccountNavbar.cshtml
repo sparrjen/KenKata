@@ -1,0 +1,31 @@
+﻿<div class="myaccount">
+    <div id="navbar-standard">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav mr-auto">
+                        <span class="navbar-brand">
+                            My Account
+                        </span>
+                    </div>
+                    <div class="navbar-nav">
+                        <div class="navbar-text">
+                            <a asp-controller="Home" asp-action="Index">Home</a>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <span>
+                                    / @User.Identity.Name
+                                    / <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Logout</a>
+                                </span>
+                            }
+                            else
+                            {
+                                <span> / My Account</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

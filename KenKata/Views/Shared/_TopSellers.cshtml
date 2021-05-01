@@ -1,0 +1,146 @@
+﻿@model IEnumerable<KenKata.Entities.Product>
+
+
+
+<div class="top-sellers">
+    <div class="container mt-5">
+        <div id="topsellers-title">
+            <span id="title-top">TOP</span>
+            <span id="title-sellers">SELLERS</span>
+            <div>
+                <img src="/Images/Shop by category/waves.svg">
+            </div>
+            <p>Check out our weekly top sellers in all category</p>
+        </div>
+        @foreach (var product in Model)
+        {
+            @if (product.ProductId == 8)
+            {
+                <div id="box-1">
+                    <div class="box-item" style="height: 649px; width: 550px;">
+                        <img id="logo" src="/Images/Logos/Bexim.svg">
+                        <img src="/Images/TopSellers/productthumb.svg">
+                        <span>@product.ProductName</span>
+
+                        <div class="hovering-layer">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="/Images/ProductPartial/Color.png">
+                                        <div id="colorlist" class="label have-grid">
+                                            <ul>
+                                                <li class="green"></li>
+                                                <li class="pink"></li>
+                                                <li class="orange"></li>
+                                                <li class="black"></li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Heart icon.png"> <span class="label">Like</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Compare icon.png"> <span class="label">Compare</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Search icon.png"> <span class="label">Search</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Cart icon.png"> <span class="label">Add to cart</span></a></li>
+                            </ul>
+
+                            <div class="pr-item-content">
+                                <h2>@product.ProductName</h2>
+                                <ul class="tags-list">
+                                    <li><button class="tag">Fashion</button></li>
+                                </ul>
+                                <p class="old-price">$220.00</p>
+                                <p class="new-price">$@product.Price</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (product.ProductId == 9)
+            {
+                <div id="box-2">
+                    <div class="box-item" style="height: 294px; width: 550px;">
+                        <img id="logo" src="/Images/Logos/lighton.svg">
+                        <img src="/Images/TopSellers/productthumb1.svg">
+                        <span>@product.ProductName</span>
+
+                        <div class="hovering-layer">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="/Images/ProductPartial/Color.png">
+                                        <div id="colorlist" class="label have-grid">
+                                            <ul>
+                                                <li class="green"></li>
+                                                <li class="pink"></li>
+                                                <li class="orange"></li>
+                                                <li class="black"></li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Heart icon.png"> <span class="label">Like</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Compare icon.png"> <span class="label">Compare</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Search icon.png"> <span class="label">Search</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Cart icon.png"> <span class="label">Add to cart</span></a></li>
+                            </ul>
+
+                            <div class="pr-item-content">
+                                <h2>@product.ProductName</h2>
+                                <ul class="tags-list">
+                                    <li><button class="tag">Bags</button></li>
+                                    <li><button class="tag">Shoes</button></li>
+                                </ul>
+                                <p class="old-price">$600.00</p>
+                                <p class="new-price">$@product.Price</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            @if (product.ProductId == 10)
+            {
+                <div id="box-3">
+                    <div class="box-item" style="height: 345px; width: 550px;">
+                        <img id="logo" src="/Images/Logos/rosimo.svg">
+                        <img src="/Images/TopSellers/productthumb2.svg">
+                        <span>@product.ProductName</span>
+
+                        <div class="hovering-layer">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="/Images/ProductPartial/Color.png">
+                                        <div id="colorlist" class="label have-grid">
+                                            <ul>
+                                                <li class="green"></li>
+                                                <li class="pink"></li>
+                                                <li class="orange"></li>
+                                                <li class="black"></li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Heart icon.png"> <span class="label">Like</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Compare icon.png"> <span class="label">Compare</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Search icon.png"> <span class="label">Search</span></a></li>
+                                <li><a href="#"><img src="/Images/ProductPartial/Cart icon.png"> <span class="label">Add to cart</span></a></li>
+                            </ul>
+
+                            <div class="pr-item-content">
+                                <h2>@product.ProductName</h2>
+                                <ul class="tags-list">
+                                    <li><button class="tag">Shoes</button></li>
+                                </ul>
+                                <p class="old-price">$350.00</p>
+                                <p class="new-price">$@product.Price</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        }
+    </div>
+</div> 

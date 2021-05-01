@@ -1,0 +1,31 @@
+﻿@model IEnumerable<KenKata.Entities.Product>
+
+<div id="top-rated-products">
+    <h3>Top Rated Products</h3>
+    @foreach (var product in Model)
+    {
+        if (product.ProductId <= 3)
+        {
+            <div class="d-flex mb-3">
+                <div class="top-rated-img mr-2">
+                    <img src="~/Images/ShopPage/Topratedproducts/Product small thumb-3.svg">
+                </div>
+                <div>
+                    <p class="mb-1">@product.ProductName</p>
+                    <div class="top-rated-ratings mb-1 d-flex">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="d-flex">
+                        <p>$</p>
+                        <p>@product.Price</p>
+                    </div>
+
+                </div>
+            </div>
+        }
+    }
+</div>

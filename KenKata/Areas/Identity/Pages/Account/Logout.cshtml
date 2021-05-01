@@ -1,0 +1,46 @@
+﻿@page
+@model LogoutModel
+
+<div class="myaccount">
+    <div id="navbar-standard">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav mr-auto">
+                        <span class="navbar-brand">
+                            Logout
+                            <span class="icon">
+                                <i class="fas fa-sign-out-alt fa-1x"></i>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="navbar-nav">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+@{
+    <div class="logout">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 border" style="border-radius:5px; background-color:#F6F6F6">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p>Are you sure that you want to log out?</p>
+                        <div class="buttons mb-4 d-flex justify-content-center">
+                            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                <button id="submit" class="btn default mr-1" type="submit">LOG OUT</button>
+                            </form>
+                            <form asp-controller="Home" asp-action="Account" method="post">
+                                <button id="cancel" class="btn default ml-1" type="submit">CANCEL</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KenKata</title>
+
+    <script src="https://kit.fontawesome.com/f1c1d19639.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+
+        <partial name="_NavbarPartial" />
+
+    </header>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+            <partial name="_Logos" />
+            <partial name="_ContactUs" />
+            <partial name="_Footer" />
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <!------ js for countdown timer in FlashSale in file site.js ------------>
+
+    <!------ js for product gallery ------------>
+    <script>
+        var ProductImg = document.getElementById("ProductImg");
+        var SmallImg = document.getElementsByClassName("small-product-img");
+
+        SmallImg[0].onclick = function () {
+            ProductImg.src = SmallImg[0].src;
+        }
+        SmallImg[1].onclick = function () {
+            ProductImg.src = SmallImg[1].src;
+        }
+        SmallImg[2].onclick = function () {
+            ProductImg.src = SmallImg[2].src;
+        }
+        SmallImg[3].onclick = function () {
+            ProductImg.src = SmallImg[3].src;
+        }
+    </script>
+
+
+    <!------ js for tabs in product-details ------------>
+    <script>
+
+        function openTab(evt, tabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
+
+</body>
+</html>

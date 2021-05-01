@@ -1,0 +1,103 @@
+﻿@model KenKata.Models.AccountViewModel
+
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<partial name="_AccountNavbar" />
+
+<div class="myaccount">
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center">
+            <form asp-action="Account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="d-flex">
+                    <div class="col-md-6">
+                        <div class="column1 col-md-12">
+                            <h3 class="pt-3 mb-4">LOGIN</h3>
+                            <div class="form-group">
+                                <label asp-for="LoginEmail" class="control-label">Username or email <span>*</span></label>
+                                <input asp-for="LoginEmail" class="form-control" />
+                                <span asp-validation-for="LoginEmail" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LoginPassword" class="control-label">Password <span>*</span></label>
+                                <input asp-for="LoginPassword" class="form-control" />
+                                <span asp-validation-for="LoginPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="Login" name="Submit1" value="LOG IN" class="btn btn-primary btn-lg btn-block" />
+                            </div>
+                            <div class="group mb-4">
+                                <div class="form-check">
+                                    <input asp-for="RememberMe" type="checkbox" class="form-check-input">
+                                    <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="forgetpwd">Lost your password?</a>
+                                </div>
+                            </div>
+                            <div class="loginwith mb-4">
+                                <p style="color:#0E153D; font-size: 16px; font-weight: 600;">OR LOGIN WITH</p>
+                            </div>
+                            <div class="socialmedia">
+                                <div class="facebook">
+                                    <button class="sm-button btn-lg btn-block" type="button">
+                                        <img src="/Images/MyAccountPage/facebook.svg">
+                                        <span>Facebook</span>
+                                    </button>
+                                </div>
+                                <div class="google">
+                                    <button class="sm-button btn-lg btn-block" type="button">
+                                        <img src="/Images/MyAccountPage/google.svg">
+                                        <span>Google</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="column2 col-md-12">
+                            <h3 class="pt-3 mb-4">REGISTER</h3>
+                            <p>
+                                Registering for this site allows you to access your order status and history.
+                                Just fill in the fields below, and we’ll get a new account set up for you in no time.
+                                We will only ask you for information necessary to make the purchase process faster and easier.
+                            </p>
+                            <div class="form-group">
+                                <label asp-for="RegisterUserName" class="control-label">Username <span>*</span></label>
+                                <input asp-for="RegisterUserName" class="form-control" />
+                                <span asp-validation-for="RegisterUserName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RegisterEmail" class="control-label">Email address <span>*</span></label>
+                                <input asp-for="RegisterEmail" class="form-control" />
+                                <span asp-validation-for="RegisterEmail" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RegisterPassword" class="control-label">Password <span>*</span></label>
+                                <input asp-for="RegisterPassword" class="form-control" />
+                                <span asp-validation-for="RegisterPassword" class="text-danger"></span>
+
+                            </div>
+                            <p class="mb-4" style="color:#0E153D; font-size: 16px;">
+                                Your personal data will be used to support your experience throughout this website,
+                                to manage access to your account, and for other purposes described in our <a href="#">privacy policy.</a>
+                            </p>
+                            <div class="form-group mb-2">
+                                <input type="submit" id="Register" name="Submit2" value="REGISTER" class="btn btn-primary btn-lg btn-block" />
+                            </div>
+                            <div>@TempData["Message"]</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
